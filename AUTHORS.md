@@ -1,4 +1,4 @@
-Caio de Lazari Rosa
-Daniel Moniz Lucena Freire dos Santos
-Henrique Shodi Maeta
-Matheus Rodrigues Souza
+Caio de Lazari Rosa</br>
+Daniel Moniz Lucena Freire dos Santos</br>
+Henrique Shodi Maeta</br>
+Matheus Rodrigues Souza</br>
