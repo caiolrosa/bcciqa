@@ -22,7 +22,7 @@ show_dialog (GtkButton *button, gpointer user_data)
   gint response_id;
 
   //Caixa de dialogo
-  dialog = gtk_dialog_new_with_buttons ("File saved", window, GTK_DIALOG_MODAL, "_OK", GTK_RESPONSE_OK, NULL);
+  dialog = gtk_dialog_new_with_buttons ("Arquivo salvo", window, GTK_DIALOG_MODAL, "_OK", GTK_RESPONSE_OK, NULL);
   
   content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
   label = gtk_label_new ("Seu arquivo foi salvo com sucesso!");
