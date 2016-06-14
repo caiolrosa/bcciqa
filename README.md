@@ -1,0 +1,2 @@
+# bcciqa
+Calculo IQA
