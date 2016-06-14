@@ -4,21 +4,15 @@
 #include "novo.h"
 
 static void
-on_response (GtkDialog *dialog,
-             gint       response_id,
-             gpointer   user_data)
+on_response (GtkDialog *dialog, gint response_id, gpointer user_data)
 {
-  /*For demonstration purposes, this will show the int value 
-  of the response type*/
-  // g_print ("response is %d\n", response_id);
   g_print ("Arquivo salvo!\n");
-  /*This will cause the dialog to be destroyed*/
+  //Fecha caixa de dialogo
   gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
 static void
-show_dialog (GtkButton *button,
-             gpointer   user_data)
+show_dialog (GtkButton *button, gpointer user_data)
 {
   GtkWindow *window = user_data;
   GtkWidget *dialog, cancel;
@@ -27,30 +21,16 @@ show_dialog (GtkButton *button,
 
   gint response_id;
 
-  /*Create the dialog window. Modal windows prevent interaction with other 
-  windows in the same application*/
-  dialog = gtk_dialog_new_with_buttons ("File saved", 
-                                        window, 
-                                        GTK_DIALOG_MODAL, 
-                                        "_OK", 
-                                        GTK_RESPONSE_OK, 
-                                        NULL);
-    
-
-  /*Create a label and attach it to the content area of the dialog*/
+  //Caixa de dialogo
+  dialog = gtk_dialog_new_with_buttons ("File saved", window, GTK_DIALOG_MODAL, "_OK", GTK_RESPONSE_OK, NULL);
+  
   content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
   label = gtk_label_new ("Seu arquivo foi salvo com sucesso!");
+  //Adciona Label na caixa de dialogo
   gtk_container_add (GTK_CONTAINER (content_area), label);
-
-  /*The main purpose of this is to show dialog's child widget, label*/
   gtk_widget_show_all (dialog);
   
-  /*Connecting the "response" signal from the user to the associated
-  callback function*/
-  g_signal_connect (GTK_DIALOG (dialog), 
-                    "response", 
-                    G_CALLBACK (on_response), 
-                    NULL);
+  g_signal_connect (GTK_DIALOG (dialog), "response", G_CALLBACK (on_response), NULL);
 
 }
 
@@ -99,9 +79,7 @@ void saveData(GtkButton *buttonSave, GObject *object_entry) {
     fclose(fp);
 }
 
-
 void entry_load(GtkButton *buttonLoad, GObject *object_entry){
-
 
     //char *str = g_strdup_printf("%.5lf", q[0]);
     GtkEntry *data_entry1 = g_object_get_data (object_entry, "entry1");
@@ -168,11 +146,8 @@ void entry_load(GtkButton *buttonLoad, GObject *object_entry){
     gtk_entry_set_text(GTK_ENTRY(data_entryPeso8), g_strdup_printf("%.2lf", pesos[7]));
     gtk_entry_set_text(GTK_ENTRY(data_entryPeso9), g_strdup_printf("%.2lf", pesos[8]));
 
-
     fclose(fp);
     printf("Carregamento completo!\n");
-
-    
 }
 
 void entry_reset(GtkButton *buttonReset, GObject *object_entry){
@@ -216,7 +191,6 @@ void entry_reset(GtkButton *buttonReset, GObject *object_entry){
 
     printf("Resentando...\n");
     printf("Reset completo!\n");
-
 }
 
 
@@ -265,7 +239,6 @@ void btn_click (GtkButton *button, GObject *object_entry) {
     printf("Calculando...\n");
     double result = iqa(q1, q2, q3, q4, q5, q6, q7, q9, q8, peso1, peso2, peso3, peso4, peso5, peso6, peso7, peso8, peso9);
     printf("\nCalculo completo:\a\n");    
-    
 
     if(result <= 100 && result > 90) {
         char *str = g_strdup_printf("IQA: %.5lf\nNível de Qualidade: Excelente \n", result);
